@@ -127,6 +127,7 @@ int main(void)
   {
     RGB_Red_Turn();
 		HAL_UART_Transmit(&huart1, (uint8_t*)0x55, 1, 100);
+    
 //    uint8_t Byte = 0x55;
 //    UART2_SendByte(Byte);
     // MyCan_Transmit(&Can_TxHeader ,TxData);
