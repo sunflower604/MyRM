@@ -126,7 +126,9 @@ int main(void)
   while (1)
   {
     RGB_Red_Turn();
-		HAL_UART_Transmit(&huart1, (uint8_t*)0x55, 1, 100);
+    uint8_t data = 0x63;
+    uint32_t Num[10] = {1,2,3,4,5,6,7,8,9,0};
+    UART1_TX_u32NumArray(Num , sizeof(Num)/sizeof(Num[0]));
     
 //    uint8_t Byte = 0x55;
 //    UART2_SendByte(Byte);

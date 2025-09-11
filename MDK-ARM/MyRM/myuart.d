@@ -34,3 +34,6 @@ myrm\myuart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 myrm\myuart.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 myrm\myuart.o: ../Core/Inc/usart.h
 myrm\myuart.o: ../Core/Inc/main.h
+myrm\myuart.o: D:\keil5\ARM\ARMCOMPLIER506\Bin\..\include\stdarg.h
+myrm\myuart.o: D:\keil5\ARM\ARMCOMPLIER506\Bin\..\include\stdio.h
+myrm\myuart.o: D:\keil5\ARM\ARMCOMPLIER506\Bin\..\include\string.h

@@ -1,4 +1,8 @@
 #include "MyUART.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdint.h>
 /*
  *函数简介:UART2发送一个字节
  *参数说明:8bits数据
@@ -28,4 +32,27 @@ void UART2_SendArray(uint8_t *Array, uint16_t Length)
     HAL_UART_Transmit(&huart1, Array, Length, 100);
 }
 
+
+
+void UART1_TX_u32Num(uint32_t Num) 
+{
+    char buf[11];
+    snprintf(buf, sizeof(buf), "%lu", (unsigned long)Num);
+    HAL_UART_Transmit(&huart1, (uint8_t*)buf, strlen(buf), 100);
+}
+
+
+void UART1_TX_u32NumArray(uint32_t *NumArray , uint32_t length) 
+{
+    uint8_t index , sign=',';
+    for(index=0 ; index<length ; index++){
+        UART1_TX_u32Num(NumArray[index]);
+        if(index < length-1){
+            HAL_UART_Transmit(&huart1, &sign, 1, 100);
+        }
+    }
+    sign='\n';
+    HAL_UART_Transmit(&huart1, &sign, 1, 100);
+
+}
 
