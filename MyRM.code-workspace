@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"myuart.h": "c",
+			"struct_typedef.h": "c"
+		}
+	}
+}
