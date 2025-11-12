@@ -1,4 +1,4 @@
-#include "MyUART.h"
+#include "BSP_UART.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -42,6 +42,7 @@ void UART1_TX_u32Num(uint32_t Num)
 }
 
 
+
 void UART1_TX_u32NumArray(uint32_t *NumArray , uint32_t length) 
 {
     uint8_t index , sign=',';
@@ -56,3 +57,7 @@ void UART1_TX_u32NumArray(uint32_t *NumArray , uint32_t length)
 
 }
 
+/*使用示例
+    uint32_t Num[10] = {1,2,3,4,5,6,7,8,9,0};
+    UART1_TX_u32NumArray(Num , sizeof(Num)/sizeof(Num[0]));
+*/

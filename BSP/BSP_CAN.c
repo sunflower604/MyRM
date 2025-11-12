@@ -1,4 +1,4 @@
-#include "MyCAN.h"
+#include "BSP_CAN.h"
 /*
 CAN协议：0 xxxxxxxxxxxx 00xxxx n*xxxxxxxx xxxxxxxxxxxxxxx1 11 1111111
 |--起始帧 																										0
@@ -153,3 +153,50 @@ uint32_t CAN2_Transmit(CAN_TxHeaderTypeDef *TxHeader, uint8_t *Data)
 	}
 
 }
+
+
+
+void CAN1_UpdateID(uint32_t ID, uint32_t mask)
+{
+    CAN_FilterTypeDef sFilterConfig = {0};
+    
+    sFilterConfig.FilterBank = 15;
+    sFilterConfig.FilterIdHigh = (ID << 5) & 0xFFFF;
+    sFilterConfig.FilterMaskIdHigh = (mask << 5) & 0xFFFF;
+    
+    HAL_CAN_Stop(&hcan2);
+    
+    if (HAL_CAN_ConfigFilter(&hcan2, &sFilterConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    
+    HAL_CAN_Start(&hcan2);
+}
+
+
+void CAN2_UpdateID(uint32_t ID, uint32_t mask)
+{
+    CAN_FilterTypeDef sFilterConfig = {0};
+    
+    sFilterConfig.FilterBank = 15;
+    sFilterConfig.FilterIdHigh = (ID << 5) & 0xFFFF;
+    sFilterConfig.FilterMaskIdHigh = (mask << 5) & 0xFFFF;
+    
+    HAL_CAN_Stop(&hcan2);
+    
+    if (HAL_CAN_ConfigFilter(&hcan2, &sFilterConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
+    
+    HAL_CAN_Start(&hcan2);
+}
+    
+// void CAN_CAN1ChangeID(uint32_t ID)
+// {
+//     CAN1->FMR |= CAN_FMR_FINIT;
+//     CAN1->sFilterRegister[0].FR1 = ((uint32_t)0xFFE3 << 16) | (ID << 5);
+//     CAN1->sFilterRegister[0].FR2 = ((uint32_t)0xFFE3 << 16) | (ID << 5);
+//     CAN1->FMR &= ~CAN_FMR_FINIT;
+// }

@@ -11,6 +11,7 @@ HAL_StatusTypeDef   CAN_Filter_Init(void);
 uint32_t            CAN1_Receive(CAN_RxHeaderTypeDef *RxHeader ,uint8_t *Data);
 uint32_t            CAN2_Receive(CAN_RxHeaderTypeDef *RxHeader ,uint8_t *Data);
 uint32_t            CAN1_Transmit(CAN_TxHeaderTypeDef *TxHeader , uint8_t *Data);
+uint32_t            CAN2_Transmit(CAN_TxHeaderTypeDef *TxHeader , uint8_t *Data);
 
 
 

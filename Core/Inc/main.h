@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define Remote_Pin GPIO_PIN_11
+#define Remote_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
 
